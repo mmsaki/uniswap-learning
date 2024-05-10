@@ -8,7 +8,17 @@ remappings = [
   "ds-test/=lib/openzeppelin-contracts/lib/forge-std/lib/ds-test/src/",
   "erc4626-tests/=lib/openzeppelin-contracts/lib/erc4626-tests/",
   "forge-std/=lib/forge-std/src/",
-  "openzeppelin-contracts/=lib/openzeppelin-contracts/"
+  "openzeppelin-contracts/=lib/openzeppelin-contracts/",
+  "@ensdomains/=lib/v4-periphery/lib/v4-core/node_modules/@ensdomains/",
+  "@uniswap/v4-core/=lib/v4-periphery/lib/v4-core/",
+  "forge-gas-snapshot/=lib/v4-periphery/lib/forge-gas-snapshot/src/",
+  "hardhat/=lib/v4-periphery/lib/v4-core/node_modules/hardhat/",
+  "openzeppelin/=lib/v4-periphery/lib/openzeppelin-contracts/contracts/",
+  "solmate/=lib/v4-periphery/lib/solmate/src/",
+  "v2-periphery/=lib/v2-periphery/contracts/",
+  "v3-periphery/=lib/v3-periphery/contracts/",
+  "v4-core/=lib/v4-periphery/lib/v4-core/src/",
+  "v4-periphery/=lib/v4-periphery/contracts/",
 ]
 
 # See more config options https://github.com/foundry-rs/foundry/blob/master/crates/config/README.md#all-options
