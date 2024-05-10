@@ -1,0 +1,22 @@
+[profile.default]
+src = "src"
+out = "out"
+libs = ["lib"]
+evm_version= "cancun"
+remappings = [
+  "@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/",
+  "ds-test/=lib/openzeppelin-contracts/lib/forge-std/lib/ds-test/src/",
+  "erc4626-tests/=lib/openzeppelin-contracts/lib/erc4626-tests/",
+  "forge-std/=lib/forge-std/src/",
+  "openzeppelin-contracts/=lib/openzeppelin-contracts/"
+]
+
+# See more config options https://github.com/foundry-rs/foundry/blob/master/crates/config/README.md#all-options
+[rpc_endpoints]
+base = "${ALCHEMY_ENDPOINT_BASE}"
+mainnet = "${ALCHEMY_ENDPOINT_MAINNET}"
+
+[etherscan]
+mainnet = { key = "${ETHERSCAN_MAINNET}" }
+optimism = { key = "${ETHERSCAN_OPTIMISM}" }
+base = { key = "${ETHERSCAN_BASE}" }
