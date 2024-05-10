@@ -15,6 +15,7 @@ remappings = [
   "hardhat/=lib/v4-periphery/lib/v4-core/node_modules/hardhat/",
   "openzeppelin/=lib/v4-periphery/lib/openzeppelin-contracts/contracts/",
   "solmate/=lib/v4-periphery/lib/solmate/src/",
+  "v2-core/=lib/v2-core/contracts/",
   "v2-periphery/=lib/v2-periphery/contracts/",
   "v3-periphery/=lib/v3-periphery/contracts/",
   "v4-core/=lib/v4-periphery/lib/v4-core/src/",
