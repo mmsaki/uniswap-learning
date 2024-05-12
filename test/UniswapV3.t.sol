@@ -5,7 +5,7 @@ import {Test} from "forge-std/Test.sol";
 import {ISwapRouter} from "v3-periphery/interfaces/ISwapRouter.sol";
 import {IUniswapV3Factory} from "v3-core/contracts/interfaces/IUniswapV3Factory.sol";
 import {IUniswapV3Pool} from "v3-core/contracts/interfaces/IUniswapV3Pool.sol";
-import {SwapV3} from "../src/SwapV3.sol";
+import {UniswapV3} from "../src/UniswapV3.sol";
 
 import {MrBase} from "../src/Token.sol";
 
@@ -26,11 +26,11 @@ uint24 constant FEE_3000 = 3000;
 uint24 constant FEE_10000 = 10000;
 
 contract TestSwapV3 is Test {
-    SwapV3 swapV3;
+    UniswapV3 swapV3;
     MrBase token;
 
     function setUp() public {
-        swapV3 = new SwapV3();
+        swapV3 = new UniswapV3();
         token = new MrBase();
     }
 

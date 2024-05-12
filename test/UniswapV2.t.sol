@@ -6,7 +6,7 @@ import {console} from "forge-std/console.sol";
 import {IUniswapV2Factory} from "v2-core/interfaces/IUniswapV2Factory.sol";
 import {IUniswapV2Pair} from "v2-core/interfaces/IUniswapV2Pair.sol";
 import {IERC20} from "@openzeppelin/contracts/interfaces/IERC20.sol";
-import {SwapV2} from "../src/SwapV2.sol";
+import {UniswapV2} from "../src/UniswapV2.sol";
 import {MrBase} from "../src/Token.sol";
 
 // Uniwasp: Base
@@ -19,12 +19,12 @@ address constant usdc = 0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913;
 address constant dai = 0x50c5725949A6F0c72E6C4a641F24049A917DB0Cb;
 
 contract SwapV2Test is Test {
-    SwapV2 public swapV2;
+    UniswapV2 public swapV2;
     IUniswapV2Factory public factory;
     IERC20 public token;
 
     function setUp() public {
-        swapV2 = new SwapV2();
+        swapV2 = new UniswapV2();
         token = new MrBase();
         factory = IUniswapV2Factory(FACTORY_BASE);
     }
