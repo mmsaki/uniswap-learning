@@ -28,39 +28,37 @@ uint24 constant FEE_10000 = 10000;
 contract TestSwapV3 is Test {
     UniswapV3 swapV3;
     MrBase token;
+    address tokenA = WETH;
+    address tokenB = DAI;
+    uint24 fee = FEE_3000;
 
     function setUp() public {
+        vm.createSelectFork("base");
         swapV3 = new UniswapV3();
         token = new MrBase();
     }
 
     function test_getPool() public view {
-        address tokenA = WETH;
-        address tokenB = DAI;
-        uint24 FEE = FEE_3000;
-
-        address pool = swapV3.getPool(tokenA, tokenB, FEE);
-        address pool_exists = IUniswapV3Factory(UNISWAP_V3_FACTORY).getPool(tokenA, tokenB, FEE);
+        address pool = swapV3.getPool(tokenA, tokenB, fee);
+        address pool_exists = IUniswapV3Factory(UNISWAP_V3_FACTORY).getPool(tokenA, tokenB, fee);
         assertEq(pool, pool_exists);
     }
 
     function test_createPool() public {
-        address tokenA = WETH;
-        address tokenB = address(token);
-        uint24 FEE = FEE_100;
+        tokenB = address(token);
 
-        address pool = swapV3.createPool(tokenA, tokenB, FEE);
+        // Test createPool
+        address pool = swapV3.createPool(tokenA, tokenB, fee);
         vm.expectRevert();
-        IUniswapV3Factory(UNISWAP_V3_FACTORY).createPool(tokenA, tokenB, FEE);
-        address pool_exists = IUniswapV3Factory(UNISWAP_V3_FACTORY).getPool(tokenA, tokenB, FEE);
+        IUniswapV3Factory(UNISWAP_V3_FACTORY).createPool(tokenA, tokenB, fee);
+        address pool_exists = IUniswapV3Factory(UNISWAP_V3_FACTORY).getPool(tokenA, tokenB, fee);
         assertEq(pool, pool_exists);
 
-        // test with different fee pool
-        FEE = FEE_500;
-        pool = swapV3.createPool(tokenA, tokenB, FEE);
+        // Test different fee pool
+        fee = FEE_500;
+        pool = swapV3.createPool(tokenA, tokenB, fee);
         assertNotEq(pool, pool_exists);
-
-        pool_exists = IUniswapV3Factory(UNISWAP_V3_FACTORY).getPool(tokenA, tokenB, FEE);
+        pool_exists = IUniswapV3Factory(UNISWAP_V3_FACTORY).getPool(tokenA, tokenB, fee);
         assertEq(pool, pool_exists);
     }
 }
